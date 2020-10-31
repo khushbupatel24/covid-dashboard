@@ -10,7 +10,7 @@
               :options="chartOptions"
               :chartColors="positiveChartColors"
               :labels="arrPositiveLabels"
-              label="Death"
+              label="Active"
             ></line-chart>
           </div>
         </card>
@@ -129,7 +129,7 @@
             renderConfirmedCaseChartData() {
                 var self = this;
                 axios.get(
-                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/deathRate.json",
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/active.json",
                     {
                         headers: {
                             'accept': 'application/vnd.github.VERSION.raw'
@@ -137,8 +137,8 @@
                     }
                 ).then(function (data) {
                     let response = data.data
-                    self.arrPositiveLabels = Object.keys(response['number of deaths'])
-                    self.arrPositive = Object.values(response['number of deaths'])
+                    self.arrPositiveLabels = Object.keys(response['active percentage'])
+                    self.arrPositive = Object.values(response['active percentage'])
                 })
             },
             renderDeathsChartData() {
