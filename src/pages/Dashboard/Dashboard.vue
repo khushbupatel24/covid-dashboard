@@ -129,7 +129,7 @@
             renderConfirmedCaseChartData() {
                 var self = this;
                 axios.get(
-                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/deathRate.json",
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/deathRate.json",
                     {
                         headers: {
                             'accept': 'application/vnd.github.VERSION.raw'
@@ -144,7 +144,7 @@
             renderDeathsChartData() {
                 var self = this;
                 axios.get(
-                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/deathRate.json",
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/deathRate.json",
                     {
                         headers: {
                             'accept': 'application/vnd.github.VERSION.raw'
