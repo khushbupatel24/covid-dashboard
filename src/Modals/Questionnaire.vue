@@ -109,12 +109,4 @@ const survey = new Survey.Model(json);
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-    h1.sv_header__text{
-      color: aqua;
-    }
 </style>
-=======
-
-</style>
->>>>>>> 40926d97ed5cb51275563e3eb46149de1fa647a1
