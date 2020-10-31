@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="main-panel" :data="sidebarBackground">
-      <dashboard-navbar v-if="$route.name == 'Dashboard'"></dashboard-navbar>
+      <dashboard-navbar></dashboard-navbar>
       <router-view name="header"></router-view>
       <div>
         <router-view></router-view>

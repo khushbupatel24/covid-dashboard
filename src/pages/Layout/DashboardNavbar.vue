@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid content-nav">
-    <div class="row">
+    <div class="row border-bottom">
       <div class="col-md-9 col-sm-12 order-2 order-md-1">
         <h1
           class="brandtext"
           title="COVID-19 TRACKER FOR UNITED STATES"
         >COVID-19 SOCIAL NETWORK</h1>
-        <small class="text-white">
+        <small class="text-white" v-if="$route.name == 'Dashboard'">
           As the coronavirus that causes Covid-19 spreads worldwide, this view of CANADA<br/>
         </small>
         <!--
@@ -36,8 +36,8 @@
                 </small>
         -->
       </div>
-      <div class="col-md-3 col-sm-12 order-2 order-md-1">
-        <router-link :to="{name: 'Questionnaire'}">
+      <div class="col-md-3 col-sm-12 order-2 order-md-1" v-if="$route.name == 'Dashboard'">
+        <router-link :to="{name: 'signup'}">
           <button class="btn btn-md btn-primary" >Sign Up</button>
         </router-link>
         <button class="btn btn-md btn-default">Login</button>

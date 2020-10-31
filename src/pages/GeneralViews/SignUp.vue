@@ -5,20 +5,19 @@
         <center>Register Yourself</center>
       </h1>
       <h5>
-        <center>To check your <COVID-19></COVID-19> symptoms</center>
+        <center>To check your <b>COVID-19 symptoms</b></center>
       </h5>
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="handleSubmit" class="border border-primary p-md-4">
         <div class="form-group">
           <label for="firstName">Name</label>
-          <input type="text" v-model="user.firstName" id="firstName" name="firstName" class="form-control"
-                 :class="{ 'is-invalid': submitted && $v.user.firstName.$error }"/>
+          <input type="text" v-model="user.firstName" placeholder="Enter your name" id="firstName" name="firstName" class="form-control" :class="{ 'is-invalid': submitted && $v.user.firstName.$error }" required/>
           <div v-if="submitted && !$v.user.firstName.required" class="invalid-feedback">First Name is required</div>
         </div>
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" v-model="user.email" id="email" name="email" class="form-control"
-                 :class="{ 'is-invalid': submitted && $v.user.email.$error }"/>
+          <input type="email" placeholder="Enter your email" v-model="user.email" id="email" name="email" class="form-control"
+                 :class="{ 'is-invalid': submitted && $v.user.email.$error }" required/>
           <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
             <span v-if="!$v.user.email.required">Email is required</span>
             <span v-if="!$v.user.email.email">Email is invalid</span>
@@ -27,15 +26,15 @@
         <div class="form-group">
           <label for="dob">Date of Birth</label>
           <input type="date" v-model="user.dob" id="dob" name="dob" class="form-control"
-                 :class="{ 'is-invalid': submitted && $v.user.dob.$error }"/>
+                 :class="{ 'is-invalid': submitted && $v.user.dob.$error }" required/>
           <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
             <span v-if="!$v.user.email.required">DOB is required</span>
           </div>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" v-model="user.password" id="password" name="password" class="form-control"
-                 :class="{ 'is-invalid': submitted && $v.user.password.$error }"/>
+          <input type="password" placeholder="Enter password" v-model="user.password" id="password" name="password" class="form-control"
+                 :class="{ 'is-invalid': submitted && $v.user.password.$error }" required/>
           <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
             <span v-if="!$v.user.password.required">Password is required</span>
             <span v-if="!$v.user.password.minLength">Password must be at least 6 characters</span>
@@ -43,8 +42,8 @@
         </div>
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" v-model="user.confirmPassword" id="confirmPassword" name="confirmPassword"
-                 class="form-control" :class="{ 'is-invalid': submitted && $v.user.confirmPassword.$error }"/>
+          <input type="password" placeholder="Re-enter password to conform" v-model="user.confirmPassword" id="confirmPassword" name="confirmPassword"
+                 class="form-control" :class="{ 'is-invalid': submitted && $v.user.confirmPassword.$error }" required/>
           <div v-if="submitted && $v.user.confirmPassword.$error" class="invalid-feedback">
             <span v-if="!$v.user.confirmPassword.required">Confirm Password is required</span>
             <span v-else-if="!$v.user.confirmPassword.sameAsPassword">Passwords must match</span>
