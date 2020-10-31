@@ -37,7 +37,9 @@
         -->
       </div>
       <div class="col-md-3 col-sm-12 order-2 order-md-1">
-        <button class="btn btn-md btn-primary" @click="showModal">Sign Up</button>
+        <router-link :to="{name: 'Questionnaire'}">
+          <button class="btn btn-md btn-primary" >Sign Up</button>
+        </router-link>
         <button class="btn btn-md btn-default">Login</button>
       </div>
     </div>

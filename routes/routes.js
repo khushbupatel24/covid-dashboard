@@ -3,21 +3,13 @@ import DashboardLayout from '../src/pages/Layout/DashboardLayout.vue';
 import NotFound from '../src/pages/GeneralViews/NotFoundPage.vue';
 import Dashboard from "../src/pages/Dashboard/Dashboard";
 import Questionnaire from "../src/Modals/Questionnaire";
-import Signup from "../src/components/Modals/signup";
-import { QuestionPanelDynamicTemplateSurveyImpl } from 'survey-vue';
+import Signup from "../src/pages/GeneralViews/SignUp";
 
 const routes = [
   {
     path: '/questionnaire',
     component: Questionnaire,
-    redirect: '/questionnaire',
     name: 'Questionnaire'
-  },
-  {
-    path: '/signup',
-    component: Signup,
-    redirect: '/signup',
-    name: 'signup'
   },
   {
     path: '/',
@@ -29,6 +21,10 @@ const routes = [
         path: 'dashboard',
         name: 'Dashboard',
         components: { default: Dashboard }
+      },{
+        path: 'signup',
+        name: 'signup',
+        components: { default: Signup }
       },
     ]
   },

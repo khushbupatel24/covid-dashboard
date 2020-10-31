@@ -2,15 +2,15 @@
     <survey :survey="survey" />
 </template>
 
-<script>  
-    import * as Survey from "survey-vue"; 
+<script>
+    import * as Survey from "survey-vue";
     import "survey-vue/survey.css";
     Survey.StylesManager.applyTheme("darkblue");
 
     export default {
         name: "surveyjs-component",
         data() {
-            
+
         var json = {
         title: "Medical Diagnosis",
         showProgressBar: "bottom",
@@ -124,4 +124,3 @@ var app = new Vue({
     };
 </script>
 
-     
