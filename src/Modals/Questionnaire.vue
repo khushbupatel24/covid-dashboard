@@ -5,7 +5,6 @@
 //  <script src="https://surveyjs.azureedge.net/1.8.12/survey.vue.min.js" type="text/javascript"> </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js" type="text/javascript"> </script>
 <script>
-    import Vue from "vue";
     import * as Survey from "survey-vue";
     import "survey-vue/survey.css";
     import "./quesstyle.css";
@@ -110,7 +109,12 @@ const survey = new Survey.Model(json);
 </script>
 
 <style scoped>
+<<<<<<< HEAD
     h1.sv_header__text{
       color: aqua;
     }
 </style>
+=======
+
+</style>
+>>>>>>> 40926d97ed5cb51275563e3eb46149de1fa647a1
