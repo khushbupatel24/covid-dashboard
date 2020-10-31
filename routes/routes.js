@@ -2,15 +2,10 @@ import DashboardLayout from '../src/pages/Layout/DashboardLayout.vue';
 // GeneralViews
 import NotFound from '../src/pages/GeneralViews/NotFoundPage.vue';
 import Dashboard from "../src/pages/Dashboard/Dashboard";
-import Questionnaire from "../src/Modals/Questionnaire";
+import Questionnaire from "../src/pages/GeneralViews/Questionnaire";
 import Signup from "../src/pages/GeneralViews/SignUp";
 
 const routes = [
-  {
-    path: '/questionnaire',
-    component: Questionnaire,
-    name: 'Questionnaire'
-  },
   {
     path: '/',
     component: DashboardLayout,
@@ -25,7 +20,11 @@ const routes = [
         path: 'signup',
         name: 'signup',
         components: { default: Signup }
-      },
+      },{
+        path: '/questionnaire',
+        component: Questionnaire,
+        name: 'Questionnaire'
+      }
     ]
   },
 

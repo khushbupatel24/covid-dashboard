@@ -3,7 +3,6 @@
 </template>
 <script src="https://surveyjs.azureedge.net/1.8.12/survey.vue.min.js" type="text/javascript"> </script>
 <script>
-    import Vue from "vue";
     import * as Survey from "survey-vue";
     import "survey-vue/survey.css";
     Survey.StylesManager.applyTheme("darkblue");
