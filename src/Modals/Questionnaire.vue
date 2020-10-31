@@ -90,8 +90,7 @@ export default {
           ],
         },
       ],
-      completedHtml:
-        " symptoms indicate you have <b>{correctedAnswers}</b> percent chances of COVID19 symptoms</b>.",
+      
     };
 
     const survey = new Survey.Model(json);
