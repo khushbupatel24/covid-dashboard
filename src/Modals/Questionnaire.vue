@@ -1,20 +1,22 @@
 <template>
     <survey :survey="survey" />
 </template>
-<script src="https://surveyjs.azureedge.net/1.8.12/survey.vue.min.js" type="text/javascript"> </script>
+
+//  <script src="https://surveyjs.azureedge.net/1.8.12/survey.vue.min.js" type="text/javascript"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js" type="text/javascript"> </script>
 <script>
     import Vue from "vue";
     import * as Survey from "survey-vue";
     import "survey-vue/survey.css";
+    import "./quesstyle.css";
     Survey.StylesManager.applyTheme("darkblue");
 
     export default {
-        name: "surveyjs-component",
+        name: "questionnaire",
         data() {
             const json = {
         title: "Medical Diagnosis",
         showProgressBar: "bottom",
-        showTimerPanel: "top",
         firstPageIsStarted: true,
         startSurveyText: "Start Diagnosis",
         pages: [
@@ -108,5 +110,7 @@ const survey = new Survey.Model(json);
 </script>
 
 <style scoped>
-
+    h1.sv_header__text{
+      color: aqua;
+    }
 </style>
