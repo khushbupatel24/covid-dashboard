@@ -23,7 +23,7 @@ const routes = [
       },{
         path: '/questionnaire',
         component: Questionnaire,
-        name: 'Questionnaire'
+        name: 'questionnaire'
       }
     ]
   },
