@@ -3,7 +3,11 @@
 </template>
 
 <script>
+import Questionnaire from "./Modals/Questionnaire";
     export default {
+        components:{
+             Questionnaire
+        },
         methods: {
             initializeLayout() {
                 if (!this.$rtl.isRTL) {
