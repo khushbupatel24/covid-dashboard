@@ -5,12 +5,12 @@
 
 <script>
 
-import login from './components/Modals/signup.vue'
+import Signup from './components/Modals/signup.vue'
 import Questionnaire from "./Modals/Questionnaire";
 
     export default {
-        components: {
-    signup,
+    components: {
+    Signup,
     Questionnaire
   },
 
