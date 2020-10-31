@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://covid19tracker.rivethammer.com/sitemap.xml
