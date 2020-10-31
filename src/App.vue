@@ -1,4 +1,5 @@
 <template>
+  <router-view>
  <div id="app" class="h-100">
     <div class="container-fluid h-100">
       <div class="row h-100">
@@ -11,14 +12,15 @@
       </div>
     </div>
   </div>
-  <router-view></router-view>
+ </router-view>
 
  
 </template>
 
 <script>
-
-import Signup from './components/Modals/signup.vue'
+import * as SurveyVue from "survey-vue";
+import "survey-vue/survey.vue";
+import Signup from './pages/GeneralViews/SignUp';
 import Questionnaire from "./Modals/Questionnaire";
 
     export default {

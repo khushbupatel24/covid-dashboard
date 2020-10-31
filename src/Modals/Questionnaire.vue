@@ -1,8 +1,9 @@
 <template>
     <survey :survey="survey" />
 </template>
-
+<script src="https://surveyjs.azureedge.net/1.8.12/survey.vue.min.js" type="text/javascript"> </script>
 <script>
+    import Vue from "vue";
     import * as Survey from "survey-vue";
     import "survey-vue/survey.css";
     Survey.StylesManager.applyTheme("darkblue");
@@ -10,8 +11,7 @@
     export default {
         name: "surveyjs-component",
         data() {
-
-        var json = {
+            const json = {
         title: "Medical Diagnosis",
         showProgressBar: "bottom",
         showTimerPanel: "top",
@@ -99,28 +99,14 @@
     completedHtml: "<h4>Your symptoms indicate you have <b>{correctedAnswers}</b> percent chances of COVID19 symptoms</b>.</h4>"
 };
 
-window.survey = new Survey.Model(json);
-
-
-survey
-    .onComplete
-    .add(function (result) {
-        document
-            .querySelector('#surveyResult')
-            .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
-
-var app = new Vue({
-    el: '#surveyElement',
-    data: {
-        survey: survey
-    }
-});
-
-   return {
+const survey = new Survey.Model(json);
+            return {
                 survey: survey
             };
         }
     };
 </script>
 
+<style scoped>
+
+</style>
