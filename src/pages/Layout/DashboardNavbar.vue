@@ -51,7 +51,7 @@
     import { BaseNav } from "components";
     */
 
-    export default {git init
+    export default {
         components: {
             CollapseTransition,
             RegisterUserModal
