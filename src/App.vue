@@ -1,9 +1,15 @@
 <template>
   <router-view></router-view>
+
 </template>
 
 <script>
+import login from './components/Modals/signup.vue'
+
     export default {
+        components: {
+    signup
+  },
         methods: {
             initializeLayout() {
                 if (!this.$rtl.isRTL) {

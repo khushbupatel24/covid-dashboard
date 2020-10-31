@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import VueScreen from 'vue-screen';
 import DashboardPlugin from './plugins/dashboard-plugin';
+import Vuelidate from 'vuelidate';
 
 // plugin setup
 Vue.use(DashboardPlugin);
@@ -12,6 +13,8 @@ import router from '../routes/router';
 Vue.use(VueRouter);
 // Bootstrap
 Vue.use(VueScreen, 'bootstrap');
+//vuelidate
+Vue.use(Vuelidate);
 
 /* eslint-disable no-new */
 new Vue({
