@@ -14,11 +14,6 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/dashboard',
-    name: 'Home'
-  },
-  {
-    path: '/',
     component: DashboardLayout,
     redirect: '/dashboard',
     name: 'Dashboard layout',
@@ -30,7 +25,7 @@ const routes = [
       },
     ]
   },
-  
+
   { path: '*', component: NotFound }
 ];
 
