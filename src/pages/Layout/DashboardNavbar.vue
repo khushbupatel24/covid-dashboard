@@ -41,12 +41,10 @@
         <button class="btn btn-md btn-default">Login</button>
       </div>
     </div>
-    <register-user-modal ref="modal"></register-user-modal>
   </div>
 </template>
 <script>
     import {CollapseTransition} from "vue2-transitions";
-    import RegisterUserModal from "../../components/Modals/Register";
     /*
     import { BaseNav } from "components";
     */
@@ -54,7 +52,6 @@
     export default {
         components: {
             CollapseTransition,
-            RegisterUserModal
             // BaseNav
         },
         computed: {},

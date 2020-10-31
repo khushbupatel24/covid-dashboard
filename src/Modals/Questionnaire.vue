@@ -5,7 +5,6 @@
 <script>  
     import * as Survey from "survey-vue"; 
     import "survey-vue/survey.css";
-    import "./index.css";
     Survey.StylesManager.applyTheme("darkblue");
 
     export default {
