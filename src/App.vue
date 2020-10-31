@@ -4,12 +4,17 @@
 </template>
 
 <script>
+
 import login from './components/Modals/signup.vue'
+import Questionnaire from "./Modals/Questionnaire";
 
     export default {
         components: {
-    signup
+    signup,
+    Questionnaire
   },
+
+
         methods: {
             initializeLayout() {
                 if (!this.$rtl.isRTL) {

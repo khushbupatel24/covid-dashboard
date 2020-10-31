@@ -5,6 +5,7 @@ import VueScreen from 'vue-screen';
 import DashboardPlugin from './plugins/dashboard-plugin';
 import Vuelidate from 'vuelidate';
 
+
 // plugin setup
 Vue.use(DashboardPlugin);
 // router setup
