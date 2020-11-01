@@ -86,7 +86,7 @@
           </div>
         </card>
       </div>
-<<<<<<< HEAD
+
       <!--geomap-->
       <div class="col-lg-6">
         <card type="chart">
@@ -130,11 +130,10 @@
     import LineChart from "../../components/Charts/LineChart";
     import BarChart from "../../components/Charts/BarChart";
     import DoughnutChart from "../../components/Charts/DonuteChart";
-<<<<<<< HEAD
+
     import GeomapChart from "../../components/Charts/GeomapChart"
-=======
     import PieChart from "../../components/Charts/PieChart";
->>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
+    
     import axios from "axios";
 
     export default {
@@ -142,11 +141,11 @@
             LineChart,
             BarChart,
             DoughnutChart,
-<<<<<<< HEAD
+
             GeomapChart,
-=======
+
             PieChart,
->>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
+
         },
         data() {
             return {
@@ -424,7 +423,7 @@
     position: relative;
   }
 
-  .chartWrapper canvas {
+  .chartWrapper canvas{
     /*   position: absolute;
     left: 0;
     top: 0;
