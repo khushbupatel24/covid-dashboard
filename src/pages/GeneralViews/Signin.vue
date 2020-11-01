@@ -12,7 +12,7 @@
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" placeholder="Enter your email" v-model="user.email" id="email" name="email" class="form-control"
+          <input type="email" placeholder="Enter your Email" v-model="user.email" id="email" name="email" class="form-control"
                  :class="{ 'is-invalid': submitted && $v.user.email.$error }" required/>
           <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
             <span v-if="!$v.user.email.required">Email is required</span>
@@ -22,7 +22,7 @@
         
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" placeholder="Enter password" v-model="user.password" id="password" name="password" class="form-control"
+          <input type="password" placeholder="Enter your Password" v-model="user.password" id="password" name="password" class="form-control"
                  :class="{ 'is-invalid': submitted && $v.user.password.$error }" required/>
           <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
             <span v-if="!$v.user.password.required">Password is required</span>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-    import {required, email, minLength, sameAs} from "vuelidate/lib/validators";
+    import {required, email, sameAs} from "vuelidate/lib/validators";
 
     export default {
         name: "app",
