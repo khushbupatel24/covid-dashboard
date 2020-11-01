@@ -132,7 +132,7 @@
                     borderColor: "#077187",
                     pointBorderColor: "#0E1428",
                     pointBackgroundColor: "#AFD6AC",
-                    backgroundColor: "#d43d90"
+                    backgroundColor: "#ff6abc"
                 },
                 confirmedCases: [],
                 confirmedCasesLabels: [],
