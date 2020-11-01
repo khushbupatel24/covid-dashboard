@@ -43,6 +43,19 @@
           </div>
         </card>
       </div>
+      <!--geomap-->
+      <div class="col-lg-6">
+        <card type="chart">
+          <div class="chart-area">
+            <geomap-chart 
+              style="height: 100%"
+            
+            ></geomap-chart>
+          </div>
+        </card>
+      </div>
+
+      <!--geomapcard end-->
     </div>
   </div>
 </template>
@@ -50,12 +63,14 @@
     import LineChart from "../../components/Charts/LineChart";
     import BarChart from "../../components/Charts/BarChart";
     import DoughnutChart from "../../components/Charts/DonuteChart";
+    import GeomapChart from "../../components/Charts/GeomapChart"
     import axios from "axios";
     export default {
         components: {
             LineChart,
             BarChart,
             DoughnutChart,
+            GeomapChart,
         },
         data() {
             return {

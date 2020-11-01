@@ -1,0 +1,65 @@
+<template>
+  <div class="component-wrapper">
+    <div ref="chart"></div>
+    <!-- <GChart type="geochart" :data="chartData" :options="chartOptions" /> -->
+  </div>
+</template>
+<script>
+import { GChart } from "vue-google-charts";
+
+// google.charts.load("current", {
+//   packages: ["geochart"],
+//   mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
+// });
+export default {
+  data() {
+    return {
+      headings: ["State", "Cases"],
+      chartData: [
+        ["British Columbia", 4373],
+        ["Canada", 11023],
+        ["Quebec", 556],
+        ["Alberta", 1969],
+        ["Manitoba", 352],
+        ["Nova Scotia", 182],
+      ],
+      chartOptions: {
+        chart: {
+          title: "Google Map for Canada Covid data",
+          width: 400,
+          height: 400,
+          region: "CA",
+          title: "Company Performance",
+          subtitle: "Sales, Expenses, and Profit: 2014-2017",
+        },
+      },
+    };
+  },
+  created() {
+      console.log('geo chart')
+    google.charts.load("current", {
+      packages: ["geochart"],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
+    });
+    console.log('geo chart')
+    google.charts.setOnLoadCallback(() => this.drawChart())    
+  },
+  methods: {
+    drawChart () {
+      const dataTable = google.visualization.arrayToDataTable([
+          ['State', 'Cases'],
+          ['British Columbia',4373],
+          ['Canada',11023],
+          ['Quebec',556],
+          ['Alberta',1969],
+          ['Manitoba',352],
+          ['Nova Scotia',182]
+        ]) // 👈 don't forget "false" here to indicate the first row as labels
+
+      const chart = new google.visualization.GeoChart(this.$refs.chart) // 👈 use ref here
+      chart.draw(dataTable, this.chartOptions)
+    }
+  }};
+</script>
