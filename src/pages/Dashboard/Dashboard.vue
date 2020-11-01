@@ -100,7 +100,6 @@
       </div>
 
       <!--geomapcard end-->
-=======
       <div class="col-lg-6">
         <card type="chart">
           <div class="card-header pt-0">
@@ -122,7 +121,6 @@
           </div>
         </card>
       </div>
->>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
     </div>
   </div>
 </template>
