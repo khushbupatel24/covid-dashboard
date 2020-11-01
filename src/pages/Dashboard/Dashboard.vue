@@ -3,46 +3,90 @@
     <div class="row pt-3">
       <div class="col-lg-6">
         <card type="chart">
+          <div class="card-header pt-0">
+            <div class="row">
+              <div class="col-sm-8 text-left">
+                <h2 title="Total Cases" class="card-title d-inline">Total Cases</h2>
+              </div>
+            </div>
+          </div>
           <div class="chart-area">
-            <line-chart v-if="arrPositive.length > 0"
-              style="height: 100%"
-              :chartData="arrPositive"
-              :options="chartOptions"
-              :chartColors="positiveChartColors"
-              :labels="arrPositiveLabels"
-              label="Active"
+            <line-chart v-if="totalCases.length > 0"
+                        style="height: 100%"
+                        :chartData="totalCases"
+                        :options="chartOptions"
+                        :chartColors="totalCasesChartColors"
+                        :labels="totalCasesLabels"
+                        label="Total Cases"
             ></line-chart>
           </div>
         </card>
       </div>
       <div class="col-lg-6">
         <card type="chart">
+          <div class="card-header pt-0">
+            <div class="row">
+              <div class="col-sm-8 text-left">
+                <h2 title="Confirmed Cases" class="card-title d-inline">Confirmed Cases</h2>
+              </div>
+            </div>
+          </div>
           <div class="chart-area">
-            <bar-chart v-if="arrDeaths.length > 0"
-              style="height: 100%"
-              :chartData="arrDeaths"
-              :options="chartOptions"
-              :chartColors="deathColors"
-              :labels="arrDeathsLabels"
-              label="Death"
+            <bar-chart v-if="confirmedCases.length > 0"
+                       style="height: 100%"
+                       :chartData="confirmedCases"
+                       :options="chartOptions"
+                       :chartColors="confirmedCasesChartColors"
+                       :labels="confirmedCasesLabels"
+                       label="Confirmed Cases"
             ></bar-chart>
+          </div>
+        </card>
+      </div>
+      <div class="col-lg-12">
+        <card type="chart">
+          <div class="card-header pt-0">
+            <div class="row">
+              <div class="col-sm-8 text-left">
+                <h2 title="Active Cases" class="card-title d-inline">Active Cases</h2>
+              </div>
+            </div>
+          </div>
+          <div class="chart-area">
+            <line-chart v-if="activeCases.length > 0"
+                        style="height: 100%"
+                        :chartData="activeCases"
+                        :options="chartOptions"
+                        :chartColors="activeCasesChartColors"
+                        :labels="activeCasesLabels"
+                        :isFilled=true
+                        label="Active Cases"
+            ></line-chart>
           </div>
         </card>
       </div>
       <div class="col-lg-6">
         <card type="chart">
+          <div class="card-header pt-0">
+            <div class="row">
+              <div class="col-sm-8 text-left">
+                <h2 title="Deaths by States" class="card-title d-inline">Deaths by States</h2>
+              </div>
+            </div>
+          </div>
           <div class="chart-area">
-            <doughnut-chart v-if="arrDeaths.length > 0"
-              style="height: 100%"
-              :chartData="arrDeaths"
-              :options="chartOptions"
-              :chartColors="recoveredColors"
-              :labels="arrDeathsLabels"
-              label="Death"
+            <doughnut-chart v-if="totalDeaths.length > 0"
+                            style="height: 100%"
+                            :chartData="totalDeaths"
+                            :options="deathsChartOptions"
+                            :chartColors="deathsChartColors"
+                            :labels="totalDeathsLabels"
+                            label="Death"
             ></doughnut-chart>
           </div>
         </card>
       </div>
+<<<<<<< HEAD
       <!--geomap-->
       <div class="col-lg-6">
         <card type="chart">
@@ -56,6 +100,29 @@
       </div>
 
       <!--geomapcard end-->
+=======
+      <div class="col-lg-6">
+        <card type="chart">
+          <div class="card-header pt-0">
+            <div class="row">
+              <div class="col-sm-8 text-left">
+                <h2 title="Recovered Cases" class="card-title d-inline">Recovered Cases</h2>
+              </div>
+            </div>
+          </div>
+          <div class="chart-area">
+            <pie-chart v-if="totalRecovered.length > 0"
+                       style="height: 100%"
+                       :chartData="totalRecovered"
+                       :options="recoveredChartOptions"
+                       :chartColors="recoveredChartColors"
+                       :labels="totalRecoveredLabels"
+                       label="Death"
+            ></pie-chart>
+          </div>
+        </card>
+      </div>
+>>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
     </div>
   </div>
 </template>
@@ -63,48 +130,53 @@
     import LineChart from "../../components/Charts/LineChart";
     import BarChart from "../../components/Charts/BarChart";
     import DoughnutChart from "../../components/Charts/DonuteChart";
+<<<<<<< HEAD
     import GeomapChart from "../../components/Charts/GeomapChart"
+=======
+    import PieChart from "../../components/Charts/PieChart";
+>>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
     import axios from "axios";
+
     export default {
         components: {
             LineChart,
             BarChart,
             DoughnutChart,
+<<<<<<< HEAD
             GeomapChart,
+=======
+            PieChart,
+>>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
         },
         data() {
             return {
-                arrPositive: [],
-                arrPositiveLabels: [],
-                positiveChartColors: {
+                totalCases: [],
+                totalCasesLabels: [],
+                totalCasesChartColors: {
                     borderColor: "#077187",
                     pointBorderColor: "#0E1428",
                     pointBackgroundColor: "#AFD6AC",
-                    backgroundColor: "#AFD6AC"
+                    backgroundColor: "#ff6abc"
                 },
-                arrHospitalized: [],
-                hospitalizedChartColors: {
+                confirmedCases: [],
+                confirmedCasesLabels: [],
+                confirmedCasesChartColors: {
                     borderColor: "#251F47",
                     pointBorderColor: "#260F26",
                     pointBackgroundColor: "#858EAB",
-                    backgroundColor: "#858EAB"
+                    backgroundColor: "#00ff99"
                 },
-                arrInIcu: [],
-                inIcuColors: {
-                    borderColor: "#190B28",
-                    pointBorderColor: "#190B28",
-                    pointBackgroundColor: "#E55381",
-                    backgroundColor: "#E55381"
+                activeCases: [],
+                activeCasesLabels: [],
+                activeCasesChartColors: {
+                    borderColor: "#251F47",
+                    pointBorderColor: "#260F26",
+                    pointBackgroundColor: "#9eb3df",
+                    backgroundColor: "#9eb3df"
                 },
-                arrOnVentilators: [],
-                onVentilatorsColors: {
-                    borderColor: "#784F41",
-                    pointBorderColor: "#784F41",
-                    pointBackgroundColor: "#BBE5ED",
-                    backgroundColor: "#BBE5ED"
-                },
-                arrRecovered: [],
-                recoveredColors: [
+                totalDeaths: [],
+                totalDeathsLabels: [],
+                deathsChartColors: [
                     "#d6df81",
                     "#ffee8c",
                     "#fdd374",
@@ -121,27 +193,94 @@
                     "#89be75",
                     "#afcf7a",
                 ],
-                arrDeaths: [],
-                arrDeathsLabels: [],
-                deathColors: {
-                    pointBorderColor: "#E06D06",
-                    pointBackgroundColor: "#e08e1a",
-                    backgroundColor: "#dfe069",
-                    borderColor: "#e0dc7d",
+                deathsChartOptions: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                totalRecovered: [],
+                totalRecoveredLabels: [],
+                recoveredChartColors: [
+                    "#d43d51",
+                    "#d43d90",
+                    "#00ff99",
+                    "#00876c",
+                    "#3d9a6f",
+                    "#64ac72",
+                    "#89be75",
+                    "#afcf7a",
+                    "#d6df81",
+                    "#ffee8c",
+                    "#fdd374",
+                    "#fab661",
+                    "#f59955",
+                    "#ed7c4f",
+                    "#e35d4f",
+                ],
+                recoveredChartOptions: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom'
+                    }
                 },
                 chartOptions: {
                     responsive: true,
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    fill: false
                 }
             };
         },
         methods: {
             getDashData() {
                 var self = this;
-                self.renderConfirmedCaseChartData();
+                self.renderTotalCasesChartData();
+                self.renderConfirmedCasesChartData();
+                self.renderActiveCasesChartData();
                 self.renderDeathsChartData();
+                self.renderRecoveredChartData();
             },
-            renderConfirmedCaseChartData() {
+            renderTotalCasesChartData() {
+                var self = this;
+                axios.get(
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/total.json",
+                    {
+                        headers: {
+                            'accept': 'application/vnd.github.VERSION.raw'
+                        }
+                    }
+                ).then(function (data) {
+                    let response = data.data
+                    let regions = Object.keys(response['total cases'])
+                    regions = regions.slice(1, -2)
+                    let counts = Object.values(response['total cases'])
+                    counts = counts.slice(1, -2)
+                    self.totalCasesLabels = regions
+                    self.totalCases = counts
+                })
+            },
+            renderConfirmedCasesChartData() {
+                var self = this;
+                axios.get(
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/Tested.json",
+                    {
+                        headers: {
+                            'accept': 'application/vnd.github.VERSION.raw'
+                        }
+                    }
+                ).then(function (data) {
+                    let response = data.data
+                    let regions = Object.keys(response['people tested'])
+                    regions = regions.slice(1, -2)
+                    let counts = Object.values(response['people tested'])
+                    counts = counts.slice(1, -2)
+                    self.confirmedCasesLabels = regions
+                    self.confirmedCases = counts
+                })
+            },
+            renderActiveCasesChartData() {
                 var self = this;
                 axios.get(
                     "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/active.json",
@@ -152,8 +291,12 @@
                     }
                 ).then(function (data) {
                     let response = data.data
-                    self.arrPositiveLabels = Object.keys(response['active percentage'])
-                    self.arrPositive = Object.values(response['active percentage'])
+                    let regions = Object.keys(response['active percentage'])
+                    regions = regions.slice(1, -2)
+                    let counts = Object.values(response['active percentage'])
+                    counts = counts.slice(1, -2)
+                    self.activeCasesLabels = regions
+                    self.activeCases = counts
                 })
             },
             renderDeathsChartData() {
@@ -168,8 +311,32 @@
                 ).then(function (data) {
                     console.log(data)
                     let response = data.data
-                    self.arrDeathsLabels = Object.keys(response['number of deaths'])
-                    self.arrDeaths = Object.values(response['number of deaths'])
+                    let regions = Object.keys(response['number of deaths'])
+                    regions = regions.slice(1, -2)
+                    let counts = Object.values(response['number of deaths'])
+                    counts = counts.slice(1, -2)
+                    self.totalDeathsLabels = regions
+                    self.totalDeaths = counts
+                })
+            },
+            renderRecoveredChartData() {
+                var self = this;
+                axios.get(
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/recovered.json",
+                    {
+                        headers: {
+                            'accept': 'application/vnd.github.VERSION.raw'
+                        }
+                    }
+                ).then(function (data) {
+                    console.log(data)
+                    let response = data.data
+                    let regions = Object.keys(response['recovered'])
+                    regions = regions.slice(1, -2)
+                    let counts = Object.values(response['recovered'])
+                    counts = counts.slice(1, -2)
+                    self.totalRecoveredLabels = regions
+                    self.totalRecovered = counts
                 })
             },
         },

@@ -100,3 +100,8 @@
         }
     };
 </script>
+<style>
+  label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+</style>

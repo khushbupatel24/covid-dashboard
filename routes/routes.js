@@ -4,6 +4,7 @@ import NotFound from '../src/pages/GeneralViews/NotFoundPage.vue';
 import Dashboard from "../src/pages/Dashboard/Dashboard";
 import Questionnaire from "../src/pages/GeneralViews/Questionnaire";
 import Signup from "../src/pages/GeneralViews/SignUp";
+import Signin from "../src/pages/GeneralViews/SignIn";
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
         path: 'signup',
         name: 'signup',
         components: { default: Signup }
+      },{
+        path: '/Signin',
+        name: 'Signin',
+        components: { default: Signin }
       },{
         path: '/questionnaire',
         component: Questionnaire,

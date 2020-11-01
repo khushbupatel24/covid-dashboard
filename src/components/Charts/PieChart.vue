@@ -1,8 +1,8 @@
 <script>
-    import {Line} from "vue-chartjs";
+    import {Pie } from "vue-chartjs";
 
     export default {
-        extends: Line,
+        extends: Pie,
         props: {
             label: {
                 type: String
@@ -16,22 +16,12 @@
             options: {
                 type: Object
             },
-            isFilled: {
-                type: Boolean,
-                default: false,
-            },
             chartColors: {
                 type: Object
             }
         },
         mounted() {
-            const {
-                borderColor,
-                pointBorderColor,
-                pointBackgroundColor,
-                backgroundColor
-            } = this.chartColors;
-
+            console.log('in mounted line chart')
             this.renderChart(
                 {
                     labels: this.labels,
@@ -39,9 +29,7 @@
                         {
                             label: this.label,
                             data: this.chartData,
-                            borderColor: backgroundColor,
-                            backgroundColor: backgroundColor,
-                            fill: this.isFilled
+                            backgroundColor: this.chartColors
                         }
                     ]
                 },
