@@ -1,11 +1,10 @@
 <template>
   <div class="container-fluid content-nav">
     <div class="row border-bottom">
-      <div class="col-md-9 col-sm-12 order-2 order-md-1">
-        <h1
-          class="brandtext"
-          title="COVID-19 TRACKER FOR UNITED STATES"
-        >COVID-19 SOCIAL NETWORK</h1>
+      <div class="col-md-8 col-sm-12 order-2 order-md-1">
+        <router-link :to="{name: 'dashboard'}">
+          <h1 class="brandtext" title="COVID-19 TRACKER FOR UNITED STATES">COVID-19 SOCIAL NETWORK</h1>
+        </router-link>
         <small class="text-white" v-if="$route.name == 'Dashboard'">
           As the coronavirus that causes Covid-19 spreads worldwide, this view of CANADA<br/>
         </small>
@@ -36,15 +35,15 @@
                 </small>
         -->
       </div>
-      <div class="col-md-3 col-sm-12 order-2 order-md-1" v-if="$route.name == 'Dashboard'">
+      <div class="col-md-4 col-sm-12 order-2 order-md-1 text-right" v-if="$route.name == 'Dashboard'">
         <router-link :to="{name: 'signup'}">
-          <button class="btn btn-md btn-primary" >Sign Up</button>
+          <button class="btn btn-sm btn-primary">Sign Up</button>
         </router-link>
         <router-link :to="{name: 'Signin'}">
-          <button class="btn btn-md btn-primary">Signin</button>
+          <button class="btn btn-sm btn-primary">Sign In</button>
         </router-link>
         <router-link :to="{name: 'questionnaire'}">
-          <button class="btn btn-md btn-default">Questionnaire</button>
+          <button class="btn btn-sm btn-default">Questionnaire</button>
         </router-link>
       </div>
     </div>

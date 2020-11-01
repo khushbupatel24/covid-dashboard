@@ -4,7 +4,7 @@ import NotFound from '../src/pages/GeneralViews/NotFoundPage.vue';
 import Dashboard from "../src/pages/Dashboard/Dashboard";
 import Questionnaire from "../src/pages/GeneralViews/Questionnaire";
 import Signup from "../src/pages/GeneralViews/SignUp";
-import Signin from "../src/pages/GeneralViews/Signin";
+import Signin from "../src/pages/GeneralViews/SignIn";
 
 const routes = [
   {

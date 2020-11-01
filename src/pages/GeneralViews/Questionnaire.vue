@@ -23,7 +23,7 @@
                         questions: [
                             {
                                 type: "html",
-                                html: "You are about to start your Medical diagnosis to detect Coronavirus symptoms.<br/>Information is still evolving.** Allergies, colds and flus can all trigger asthama, which can lead to shortening of breathe<br/>COVID-19 is the only one associated with shortness of breath on its own. Sources: Asthama and allergy foundation of America, World Health Organisation, Centres of disease control and Prevention<br/>Please click on <b>'Start'</b> button when you are ready."
+                                html: "You are about to start your Medical diagnosis to detect Coronavirus symptoms.<br/><br/>Information is still evolving.** Allergies, colds and flus can all trigger asthama, which can lead to shortening of breathe<br/>COVID-19 is the only one associated with shortness of breath on its own. Sources: Asthama and allergy foundation of America, World Health Organisation, Centres of disease control and Prevention<br/><br/>Please click on <b>'Start'</b> button when you are ready."
                             }
                         ]
                     }, {
@@ -110,6 +110,6 @@
 
 <style>
 h3, h5 {
-  color: black !important;
+  color: #32325d !important;
 }
 </style>
