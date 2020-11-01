@@ -40,6 +40,9 @@
         <router-link :to="{name: 'signup'}">
           <button class="btn btn-md btn-primary" >Sign Up</button>
         </router-link>
+        <router-link :to="{name: 'Signin'}">
+          <button class="btn btn-md btn-primary">Signin</button>
+        </router-link>
         <router-link :to="{name: 'questionnaire'}">
           <button class="btn btn-md btn-default">Questionnaire</button>
         </router-link>
