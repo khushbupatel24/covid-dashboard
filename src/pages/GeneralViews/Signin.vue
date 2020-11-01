@@ -1,106 +1,77 @@
 <template>
-  <survey :survey="survey" />
-</template>
- 
-<script>
-import * as Survey from "survey-vue";
-import "survey-vue/survey.css";
-import "./quesstyle.css";
-Survey.StylesManager.applyTheme("darkblue");
+  <div class="col-sm-4 offset-sm-4 pt-lg-5">
+    <div>
+      <h1>
+        <center>Sign in</center>
+      </h1>
+      <h5>
+        <center>To chat with other users</center>
+      </h5>
+      <form @submit.prevent="handleSubmit" class="border border-primary p-md-4">
+        
 
-export default {
-  name: "questionnaire",
-  data() {
-    const json = {
-      title: "Medical Diagnosis",
-      showProgressBar: "bottom",
-      firstPageIsStarted: true,
-      startSurveyText: "Start Diagnosis",
-      pages: [
-        {
-          questions: [
-            {
-              type: "html",
-              html:
-                "You are about to start your Medical diagnosis to detect Coronavirus symptoms.<br/>Information is still evolving.** Allergies, colds and flus can all trigger asthama, which can lead to shortening of breathe<br/>COVID-19 is the only one associated with shortness of breath on its own. Sources: Asthama and allergy foundation of America, World Health Organisation, Centres of disease control and Prevention<br/>Please click on <b>'Start'</b> button when you are ready.",
-            },
-          ],
-        },
-        {
-          questions: [
-            {
-              type: "radiogroup",
-              name: "cold",
-              title: "Are you experiencing cough?",
-              choices: ["Yes, Dry", "Yes, but Mild", "Yes, Wet", "No"],
-              correctAnswer: "",
-              covid: "Yes, Dry",
-              cold: "Yes, but Mild",
-              flu: "Yes, Dry",
-              allergy: "Yes, Dry",
-            },
-          ],
-        },
-        {
-          questions: [
-            {
-              type: "radiogroup",
-              name: "shortnessofbreath",
-              title: "Do you have shortness of breath",
-              choicesOrder: "random",
-              choices: ["Yes", "No", "Sometimes"],
-              correctAnswer: "",
-              covid: "Sometimes",
-              cold: "No",
-              flu: "No",
-              allergy: "No",
-            },
-          ],
-        },
-        {
-          questions: [
-            {
-              type: "radiogroup",
-              name: "sneeze",
-              title: "Do you often sneeze?",
-              choicesOrder: "random",
-              choices: ["Yes", "No"],
-              correctAnswer: "",
-              covid: "No",
-              cold: "Yes",
-              flu: "No",
-              allergy: "Yes",
-            },
-          ],
-        },
-        {
-          questions: [
-            {
-              type: "radiogroup",
-              name: "runningnose",
-              title: "Do you have runny or stuffy nose?",
-              choicesOrder: "random",
-              choices: ["Rarely", "Yes", "Sometimes", "No"],
-              correctAnswer: "",
-              covid: "Rarely",
-              cold: "Yes",
-              flu: "Sometimes",
-              allergy: "Yes",
-            },
-          ],
-        },
-      ],
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" placeholder="Enter your email" v-model="user.email" id="email" name="email" class="form-control"
+                 :class="{ 'is-invalid': submitted && $v.user.email.$error }" required/>
+          <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
+            <span v-if="!$v.user.email.required">Email is required</span>
+            <span v-if="!$v.user.email.email">Email is invalid</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" placeholder="Enter password" v-model="user.password" id="password" name="password" class="form-control"
+                 :class="{ 'is-invalid': submitted && $v.user.password.$error }" required/>
+          <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
+            <span v-if="!$v.user.password.required">Password is required</span>
+          </div>
+        </div>
       
-    };
+        <div class="form-group text-center">
+          <button class="btn btn-primary">
+            <center>Signin</center>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
 
-    const survey = new Survey.Model(json);
-    return {
-      survey: survey,
+<script>
+    import {required, email, minLength, sameAs} from "vuelidate/lib/validators";
+
+    export default {
+        name: "app",
+        data() {
+            return {
+                user: {
+                    email: "",
+                    password: "",
+                },
+                submitted: false
+            };
+        },
+        validations: {
+            user: {
+               
+                email: {required, email},
+                password: {required},
+            }
+        },
+        methods: {
+            handleSubmit() {
+                this.submitted = true;
+
+                // stop here if form is invalid
+                this.$v.$touch();
+                if (this.$v.$invalid) {
+                    return;
+                }
+
+                alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.user));
+            }
+        }
     };
-  },
-};
 </script>
-
-<style scoped>
-</style>
-
