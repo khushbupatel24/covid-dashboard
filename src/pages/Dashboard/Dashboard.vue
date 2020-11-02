@@ -1,17 +1,5 @@
 <template>
   <div class="container-fluid">
-    <!--geomap-->
-      <div class="col-lg-6">
-        <card type="chart">
-          <div class="chart-area">
-            <geomap-chart 
-              style="height: 100%"
-            
-            ></geomap-chart>
-          </div>
-        </card>
-      </div>
-      <!--end-->
     <div class="row pt-3">
       <div class="col-lg-6">
         <card type="chart">
