@@ -1,17 +1,21 @@
 <template>
   <div class="component-wrapper">
     <div ref="chart"></div>
-    <!-- <GChart type="geochart" :data="chartData" :options="chartOptions" /> -->
+    <GChart type="geochart" :data="chartData" :options="chartOptions" />
   </div>
 </template>
+
 <script>
 import { GChart } from "vue-google-charts";
 
-// google.charts.load("current", {
-//   packages: ["geochart"],
-//   mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
-// });
+  //added  
+import * as VueGoogleMaps from 'vue2-google-maps';
+
+
+
 export default {
+  components: GChart,
+ 
   data() {
     return {
       headings: ["State", "Cases"],
@@ -35,12 +39,14 @@ export default {
       },
     };
   },
+  //added computed
+   computed: {
+    google: VueGoogleMaps.gmapApi
+},
   created() {
       console.log('geo chart')
-    google.charts.load("current", {
+      google.charts.load("current", {
       packages: ["geochart"],
-      // Note: you will need to get a mapsApiKey for your project.
-      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
       mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
     });
     console.log('geo chart')
@@ -61,5 +67,6 @@ export default {
       const chart = new google.visualization.GeoChart(this.$refs.chart) // 👈 use ref here
       chart.draw(dataTable, this.chartOptions)
     }
-  }};
+  }
+  };
 </script>

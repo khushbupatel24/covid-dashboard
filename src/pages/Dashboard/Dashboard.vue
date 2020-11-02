@@ -1,5 +1,17 @@
 <template>
   <div class="container-fluid">
+    <!--geomap-->
+      <div class="col-lg-6">
+        <card type="chart">
+          <div class="chart-area">
+            <geomap-chart 
+              style="height: 100%"
+            
+            ></geomap-chart>
+          </div>
+        </card>
+      </div>
+      <!--end-->
     <div class="row pt-3">
       <div class="col-lg-6">
         <card type="chart">
@@ -86,21 +98,6 @@
           </div>
         </card>
       </div>
-<<<<<<< HEAD
-      <!--geomap-->
-      <div class="col-lg-6">
-        <card type="chart">
-          <div class="chart-area">
-            <geomap-chart 
-              style="height: 100%"
-            
-            ></geomap-chart>
-          </div>
-        </card>
-      </div>
-
-      <!--geomapcard end-->
-=======
       <div class="col-lg-6">
         <card type="chart">
           <div class="card-header pt-0">
@@ -122,7 +119,6 @@
           </div>
         </card>
       </div>
->>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
     </div>
   </div>
 </template>
@@ -130,23 +126,16 @@
     import LineChart from "../../components/Charts/LineChart";
     import BarChart from "../../components/Charts/BarChart";
     import DoughnutChart from "../../components/Charts/DonuteChart";
-<<<<<<< HEAD
-    import GeomapChart from "../../components/Charts/GeomapChart"
-=======
     import PieChart from "../../components/Charts/PieChart";
->>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
+  //  import GeomapChart from "../../components/Charts/GeomapChart"
     import axios from "axios";
-
     export default {
         components: {
             LineChart,
             BarChart,
             DoughnutChart,
-<<<<<<< HEAD
-            GeomapChart,
-=======
             PieChart,
->>>>>>> 8a93b55ca926a392829fd59ef9e2de8e870519ba
+       //     GeomapChart,
         },
         data() {
             return {

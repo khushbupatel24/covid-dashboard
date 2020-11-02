@@ -97,7 +97,8 @@
                         ]
                     },
                 ],
-                completedHtml: "<h4>Your symptoms indicate you have <b>{correctedAnswers}</b> percent chances of COVID19 symptoms</b>.</h4>"
+                
+                completedHtml: "<h4 style=\"color:black;\">Your symptoms indicate you have <b>{correctedAnswers}</b> percent chances of COVID19 symptoms</b>.</h4>"
             };
 
             const survey = new Survey.Model(json);

@@ -4,6 +4,7 @@ import App from './App.vue';
 import VueScreen from 'vue-screen';
 import DashboardPlugin from './plugins/dashboard-plugin';
 import Vuelidate from 'vuelidate';
+
 import VueGoogleCharts from 'vue-google-charts';
 
 
