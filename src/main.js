@@ -4,12 +4,10 @@ import App from './App.vue';
 import VueScreen from 'vue-screen';
 import DashboardPlugin from './plugins/dashboard-plugin';
 import Vuelidate from 'vuelidate';
-
-import VueGoogleCharts from 'vue-google-charts';
-
+import VueGoogleCharts from 'vue-google-charts'
 
 //use googlecharts
-Vue.use(VueGoogleCharts);
+Vue.use(VueGoogleCharts)
 // plugin setup
 Vue.use(DashboardPlugin);
 // router setup

@@ -43,25 +43,19 @@
           </div>
         </card>
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-12" style="height: 100%">
         <card type="chart">
           <div class="card-header pt-0">
             <div class="row">
               <div class="col-sm-8 text-left">
-                <h2 title="Active Cases" class="card-title d-inline">Active Cases</h2>
+                <h2 title="Regional Statistics" class="card-title d-inline">Regional Statistics</h2>
               </div>
             </div>
           </div>
           <div class="chart-area">
-            <line-chart v-if="activeCases.length > 0"
-                        style="height: 100%"
-                        :chartData="activeCases"
-                        :options="chartOptions"
-                        :chartColors="activeCasesChartColors"
-                        :labels="activeCasesLabels"
-                        :isFilled=true
-                        label="Active Cases"
-            ></line-chart>
+            <geomap-chart v-if="regionChartData.length > 0"
+              :chartData="regionChartData"
+            ></geomap-chart>
           </div>
         </card>
       </div>
@@ -86,20 +80,6 @@
           </div>
         </card>
       </div>
-
-      <!--geomap-->
-      <div class="col-lg-6">
-        <card type="chart">
-          <div class="chart-area">
-            <geomap-chart 
-              style="height: 100%"
-            
-            ></geomap-chart>
-          </div>
-        </card>
-      </div>
-
-      <!--geomapcard end-->
       <div class="col-lg-6">
         <card type="chart">
           <div class="card-header pt-0">
@@ -121,6 +101,28 @@
           </div>
         </card>
       </div>
+      <div class="col-lg-6">
+        <card type="chart">
+          <div class="card-header pt-0">
+            <div class="row">
+              <div class="col-sm-8 text-left">
+                <h2 title="Active Cases" class="card-title d-inline">Active Cases</h2>
+              </div>
+            </div>
+          </div>
+          <div class="chart-area">
+            <line-chart v-if="activeCases.length > 0"
+                        style="height: 100%"
+                        :chartData="activeCases"
+                        :options="chartOptions"
+                        :chartColors="activeCasesChartColors"
+                        :labels="activeCasesLabels"
+                        :isFilled=true
+                        label="Active Cases"
+            ></line-chart>
+          </div>
+        </card>
+      </div>
     </div>
   </div>
 </template>
@@ -131,16 +133,15 @@
 
     import GeomapChart from "../../components/Charts/GeomapChart"
     import PieChart from "../../components/Charts/PieChart";
-    
+
     import axios from "axios";
+
     export default {
         components: {
             LineChart,
             BarChart,
             DoughnutChart,
-
-          //  GeomapChart,
-
+            GeomapChart,
             PieChart,
 
         },
@@ -226,7 +227,8 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     fill: false
-                }
+                },
+                regionChartData : []
             };
         },
         methods: {
@@ -234,6 +236,7 @@
                 var self = this;
                 self.renderTotalCasesChartData();
                 self.renderConfirmedCasesChartData();
+                self.renderRegionChartData();
                 self.renderActiveCasesChartData();
                 self.renderDeathsChartData();
                 self.renderRecoveredChartData();
@@ -274,6 +277,24 @@
                     counts = counts.slice(1, -2)
                     self.confirmedCasesLabels = regions
                     self.confirmedCases = counts
+                })
+            },
+            renderRegionChartData() {
+                var self = this;
+                axios.get(
+                    "https://api.github.com/repos/khushbupatel24/covid-data/contents/data/total.json",
+                    {
+                        headers: {
+                            'accept': 'application/vnd.github.VERSION.raw'
+                        }
+                    }
+                ).then(function (data) {
+                    let response = data.data['total cases']
+                    let regionWiseData = Object.keys(response).map(function (key) {
+                        return [key, response[key]]
+                    });
+                    console.log(regionWiseData)
+                    self.regionChartData = regionWiseData
                 })
             },
             renderActiveCasesChartData() {
