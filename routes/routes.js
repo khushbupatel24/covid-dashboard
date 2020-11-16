@@ -5,6 +5,7 @@ import Dashboard from "../src/pages/Dashboard/Dashboard";
 import Questionnaire from "../src/pages/GeneralViews/Questionnaire";
 import Signup from "../src/pages/GeneralViews/SignUp";
 import Signin from "../src/pages/GeneralViews/SignIn";
+import profile from "../src/pages/GeneralViews/profile";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
         path: '/Signin',
         name: 'Signin',
         components: { default: Signin }
+      },{
+        path: '/profile',
+        name: 'profile',
+        components: { default: profile }
       },{
         path: '/questionnaire',
         component: Questionnaire,

@@ -45,6 +45,9 @@
         <router-link :to="{name: 'questionnaire'}">
           <button class="btn btn-sm btn-default">Questionnaire</button>
         </router-link>
+        <router-link :to="{name: 'profile'}">
+          <button class="btn btn-sm btn-primary">profile</button>
+        </router-link>
       </div>
     </div>
   </div>
