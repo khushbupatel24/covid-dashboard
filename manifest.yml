@@ -1,0 +1,8 @@
+ applications:
+ - name: covid-dashboard
+     path: ./dist
+     buildpack: https://github.com/cloudfoundry/covid-dashboard.git
+     random-route: true
+     memory: 64M
+     env:
+     FORCE_HTTPS: true
