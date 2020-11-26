@@ -32,10 +32,12 @@
                                 type: "radiogroup",
                                 name: "cold",
                                 title: "Are you experiencing cough?",
+                                isRequired: true,
+                                defaultValue: "Yes, Dry",
                                 choices: [
                                     "Yes, Dry", "Yes, but Mild", "Yes, Wet", "No"
                                 ],
-                                correctAnswer: "",
+                                correctAnswer: "Yes, Dry",
                                 covid: "Yes, Dry",
                                 cold: "Yes, but Mild",
                                 flu: "Yes, Dry",
@@ -47,12 +49,14 @@
                             {
                                 type: "radiogroup",
                                 name: "shortnessofbreath",
-                                title: "Do you have shortness of breath",
+                                title: "Do you have shortness of breath", 
+                                isRequired: true,
+                                defaultValue: "Sometimes",
                                 choicesOrder: "random",
                                 choices: [
                                     "Yes", "No", "Sometimes"
                                 ],
-                                correctAnswer: "",
+                                correctAnswer: "Sometimes",
                                 covid: "Sometimes",
                                 cold: "No",
                                 flu: "No",
@@ -66,11 +70,13 @@
                                 type: "radiogroup",
                                 name: "sneeze",
                                 title: "Do you often sneeze?",
+                                isRequired: true,
+                                defaultValue: "No",
                                 choicesOrder: "random",
                                 choices: [
                                     "Yes", "No"
                                 ],
-                                correctAnswer: "",
+                                correctAnswer: "No",
                                 covid: "No",
                                 cold: "Yes",
                                 flu: "No",
@@ -84,11 +90,13 @@
                                 type: "radiogroup",
                                 name: "runningnose",
                                 title: "Do you have runny or stuffy nose?",
+                                isRequired: true,
+                                defaultValue: "Rarely",
                                 choicesOrder: "random",
                                 choices: [
                                     "Rarely", "Yes", "Sometimes", "No"
                                 ],
-                                correctAnswer: "",
+                                correctAnswer: "Rarely",
                                 covid: "Rarely",
                                 cold: "Yes",
                                 flu: "Sometimes",
@@ -97,9 +105,8 @@
                         ]
                     },
                 ],
-                
-                completedHtml: "<h4 style=\"color:black;\">Your symptoms indicate you have <b>{correctedAnswers}</b> percent chances of COVID19 symptoms</b>.</h4>"
-            };
+                completedHtml: "<h4 style=\"color:black;\"> Your results indicate you have <b>{correctedAnswers}</b> out of <b>{questionCount}</b> similar symptoms of COVID19.</h4>",
+             };
 
             const survey = new Survey.Model(json);
             return {
