@@ -6,6 +6,7 @@ import Questionnaire from "../src/pages/GeneralViews/Questionnaire";
 import Signup from "../src/pages/GeneralViews/SignUp";
 import Signin from "../src/pages/GeneralViews/SignIn";
 import profile from "../src/pages/GeneralViews/profile";
+import table from "../src/pages/GeneralViews/table";
 
 const routes = [
   {
@@ -34,6 +35,10 @@ const routes = [
         path: '/questionnaire',
         component: Questionnaire,
         name: 'questionnaire'
+      },{
+        path: '/table',
+        component: table,
+        name: 'table'
       }
     ]
   },

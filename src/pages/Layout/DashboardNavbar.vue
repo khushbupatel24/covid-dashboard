@@ -48,6 +48,9 @@
         <router-link :to="{name: 'profile'}">
           <button class="btn btn-sm btn-primary">profile</button>
         </router-link>
+         <router-link :to="{name: 'table'}">
+          <b-breadcrumb class="primary">table</b-breadcrumb>
+        </router-link>
       </div>
     </div>
   </div>
