@@ -17,10 +17,10 @@
                         <td>23</td>
                         <td>12</td>
                     </tr>
-                    <!--<tr v-for="user in users">
+                    <!--<tr v-for="state in states">
                         <th scope="row">{{index+1}}</th>
-                        <td>{{user.name}}</td>
-                        <td>{{user.email}}</td>
+                        <td>{{state.confirmed}}</td>
+                        <td>{{state.recovered}}</td>
                     </tr>-->
                 </tbody>
             </table>
@@ -32,13 +32,13 @@
     export default{
         e1: '#app',
         data:{
-            users: []
+            states: []
         },
 
         mounted: function(){
-            axios.get('https://jsonplacholder.typicode.com/users')
+            axios.get('https://api.github.com/repos/khushbupatel24/covid-data/contents/data/table.json')
             .then(response => {
-                this.users=response.data;
+                this.states=response.data;
                 console.log(response);
             })
             .catch(function (error) {
